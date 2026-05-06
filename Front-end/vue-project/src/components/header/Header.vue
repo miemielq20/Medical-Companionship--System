@@ -11,9 +11,8 @@
                 <el-icon v-if="item.meta?.icon" size="20">
                     <component :is="item.meta?.icon" />
                 </el-icon>
-                <router-link :to="{
-                    path: item.meta?.path as string
-                }"><span>{{ item.meta?.name }}</span> 
+                <router-link :to="{ path: item.meta?.path as string }" @click="handleClick(item)">
+                  <span>{{ item.meta?.name }}</span>
                 </router-link>
                 <el-icon size="14" class="close-icon" color="black" @click.stop="closeTag(item, index)">
                     <Close />
@@ -43,17 +42,28 @@
     import { useRouter } from "vue-router";
     import { computed } from "vue";
     import { useRoute } from "vue-router";
+    import { useRouterStore } from '@/stores/router';
 
     const route = useRoute();
     const router = useRouter();
     const asideStore = useAsideStore();
+    const routerStore = useRouterStore();
+    
 
-    const { selectMenu, isCollapse, closeMenu } = asideStore;
+    const { selectMenu, isCollapse, closeMenu, updateMenuActive, updateMenuActiveByPath } = asideStore;
     const userInfo = computed(() => {
         return JSON.parse(localStorage.getItem("userInfo") as string);
     });
     
 
+    const handleClick = (item: any) => {
+      const path = item.meta?.path as string
+      if (!path) return
+      const index = asideStore.findMenuIndexByPath(path, routerStore.routerList)
+      if (index) {
+        updateMenuActive(index)
+      }
+    };
     // 切换侧边栏
     const toggleAside = () => {
         isCollapse();
@@ -75,15 +85,20 @@
                     // 判断当前tag是否是最后一个
                     if(index==0){
                         closeMenu(index);
+                        updateMenuActive('1-1')
                         router.push('/login')
                     }else {
                         //判断当前tag是否为末尾,向前跳
                        closeMenu(index);
-                       router.push(selectMenu[index-1]?.meta?.path as string)
+                       const nextPath = selectMenu[index-1]?.meta?.path as string
+                       updateMenuActiveByPath(nextPath, routerStore.routerList)
+                       router.push(nextPath)
                     }
                 }else{
                     //当前tag在中间向后跳
-                  router.push(selectMenu[index+1]?.meta?.path as string)
+                  const nextPath = selectMenu[index+1]?.meta?.path as string
+                  updateMenuActiveByPath(nextPath, routerStore.routerList)
+                  router.push(nextPath)
                   closeMenu(index);
                 }
            }

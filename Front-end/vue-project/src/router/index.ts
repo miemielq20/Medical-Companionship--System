@@ -3,26 +3,29 @@ import LoginView from '@/views/LoginView.vue'
 import Layout from '@/views/Layout.vue'
 
 //动态路由加载函数
-const localData = localStorage.getItem('RouterList')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'main',
     component: Layout,
     meta: { requiresAuth: true },
-    redirect: (to)=>{
-      // 有路由数据，根据路由数据进行跳转
-      if(localData){
-        const children = JSON.parse(localData).routerList[0].children 
-        // 有子路由，跳转到第一个子路由；没有子路由，跳转到对应的根路径
-        if(children && children.length > 0){
-          return { path: children[0].path }
-        }else{
-          return { path: JSON.parse(localData).routerList[0].meta.path }
+    redirect: () => {
+      const localData = localStorage.getItem('RouterList')
+      if (localData) {
+        const routerList = JSON.parse(localData).routerList
+        if (routerList && routerList.length > 0) {
+          // 默认重定向到第一个路由的第一个子路由
+          const firstRoute = routerList[0]
+          const children = firstRoute.children
+          // 如果第一个路由有子路由，重定向到第一个子路由，否则重定向到第一个路由
+          if (children && children.length > 0) {
+            return { path: children[0].meta.path }
+          } else {
+            return { path: firstRoute.meta.path }
+          }
         }
-      }else{
-        return { path: '/' }
       }
+      return { path: '/login' }
     },
     children: [
       

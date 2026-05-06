@@ -28,7 +28,7 @@
     
 
      const asideStore = useAsideStore();
-     const{addMenu,updateMenuActive}=asideStore
+     const { addMenu,updateMenuActive }=asideStore
      const router = useRouter()
   
     const handleClick = (item: MenuItem,index:string) => {

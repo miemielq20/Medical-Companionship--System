@@ -64,11 +64,15 @@
     import { authAdmin, menuSelectlist,updateUser } from '@/api/index'
     import { ref, reactive, onMounted } from 'vue'
     import { useRoute } from 'vue-router'
+    import { useRouterStore } from '@/stores/router'
+    import { useAsideStore } from '@/stores/aside'
 
     import { type FormInstance } from 'element-plus'
     import { type PermissionGroup, type Permissions } from '@/types/permisson'
     import dayjs from 'dayjs'
 
+    const routerStore = useRouterStore()
+     const asideStore = useAsideStore()
     const route = useRoute()
     // 弹窗
     const dialogTableVisible = ref(false)
@@ -170,8 +174,8 @@
                     name,permissions_id
                 }).then(res=>{
                     if(res.data.code===10000){
-                         getList()
-                         beforeClose()
+                        getList()
+                        beforeClose()
                     }
                 })
             } else {

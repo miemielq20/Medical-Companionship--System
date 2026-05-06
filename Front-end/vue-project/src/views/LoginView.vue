@@ -111,7 +111,7 @@
   import type { FormRules,FormInstance } from 'element-plus'
   import {getCode,userAuthentication,login} from '@/api/index'
   import {useRouter} from 'vue-router'
-  import {menuPermissions} from '@/api/index'
+  import getDynamicRouter from '@/utils/getList'
   import {useRouterStore} from '@/stores/router'
 
   const RouterStore = useRouterStore()
@@ -226,13 +226,12 @@
                 ElMessage.success('登录成功')
                 window.localStorage.setItem('token',res.data.data.token)
                 window.localStorage.setItem('userInfo',JSON.stringify(res.data.data.userInfo))
-                await menuPermissions().then(res => {
-                  RouterStore.dynamicMenu(res.data.data)
-                  toRaw(routerList.value).forEach(item => {
-                    router.addRoute('main',item)
-                  })
-                })
-                router.push('/')
+                try {
+                  await getDynamicRouter()
+                  router.replace('/')
+                } catch (error) {
+                  ElMessage.error('菜单加载失败，请重试')
+                }
               } else {
                 ElMessage.error(res.data.msg )
               }
