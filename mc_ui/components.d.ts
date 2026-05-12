@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Aside: typeof import('./src/components/aside/Aside.vue')['default']
+    Aside: typeof import('./src/components/Aside/Aside.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -49,6 +49,6 @@ declare module 'vue' {
     PanelHead: typeof import('./src/components/panel/PanelHead.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TreeMenu: typeof import('./src/components/aside/TreeMenu.vue')['default']
+    TreeMenu: typeof import('./src/components/Aside/TreeMenu.vue')['default']
   }
 }
