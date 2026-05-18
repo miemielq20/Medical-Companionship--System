@@ -47,7 +47,7 @@ export const menuList=(params:MenuListRequest)=>{
 
 //菜单权限添加
 export const updateUser=(data:UpdateUserRequest)=>{
-  return http.post('/update/user',data)
+  return http.post('/user/update', data)
 }
 
 //用户菜单权限
@@ -62,7 +62,7 @@ export const photoList=()=>{
 
 //陪护师创建
 export const companion=(data:CompanionRequest)=>{
-  return http.post(`/companion`,data)
+  return http.post(`/set/companion`,data)
 }
 //陪护师列表
 export const companionList=(params:CompanionListRequest)=>{
@@ -70,5 +70,5 @@ export const companionList=(params:CompanionListRequest)=>{
 }
 //陪护师删除
 export const deleteCompanion=(data:DeleteCompanionRequest)=>{
-  return http.post(`/delete/companion`,data)
+  return http.post(`/companion/delete`, data)
 }

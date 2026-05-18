@@ -48,13 +48,13 @@
     const router = useRouter();
     const asideStore = useAsideStore();
     const routerStore = useRouterStore();
-    
+
 
     const { selectMenu, isCollapse, closeMenu, updateMenuActive, updateMenuActiveByPath } = asideStore;
     const userInfo = computed(() => {
         return JSON.parse(localStorage.getItem("userInfo") as string);
     });
-    
+
 
     const handleClick = (item: any) => {
       const path = item.meta?.path as string
@@ -102,7 +102,7 @@
                   closeMenu(index);
                 }
            }
-          
+
         }
 
     }
@@ -158,7 +158,7 @@
                     text-decoration: none;
                     color: black;
                 }
-                
+
 
                 .close-icon {
                     cursor: pointer;

@@ -6,10 +6,11 @@ export type PermissionGroup =  {
 
 // 权限列表
 export type Permissions = {
-  create_time:string;
-  id: number;
-  name:string;
-  active: string;
-  mobile: number;
-  permissions_id: number;
-};
+  createTime: string
+  id: number
+  userName: string
+  nickname: string
+  active: string
+  mobile: string
+  permissionsId: number
+}

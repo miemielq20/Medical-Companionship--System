@@ -2,10 +2,10 @@ import axios from 'axios';
 import { ElMessage } from 'element-plus';
 
 
-const http=axios.create({
-  baseURL: 'https://v3pz.itndedu.com/v3pz',
+const http = axios.create({
+  baseURL: 'http://localhost:8080',
   timeout: 10000,
-});
+})
 
 
 // 添加请求拦截器

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>mc_vue</artifactId>
+    <artifactId>mc_server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mc_vue</name>
     <description>mc_vue</description>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.4.5</version>
+            <version>1.4.7</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -155,5 +155,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
