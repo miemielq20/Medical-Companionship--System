@@ -21,6 +21,9 @@ public class TokenInterceptor implements HandlerInterceptor {
         if (token == null || token.isEmpty()) {
             token = request.getHeader("x-token");
         }
+        if (token == null || token.isEmpty()) {
+            token = request.getHeader("h-token");
+        }
 
         // 检查 token 是否存在
         if (token == null || token.isEmpty()) {

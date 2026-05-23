@@ -1,0 +1,152 @@
+<template>
+    <div class="home-container">
+        <div class="header">
+            <div class="header-left">
+                <span class="header-left-text">中部地区</span>
+                <van-icon name="arrow" />
+            </div>
+            <div class="header-right">
+                <van-search v-model="value" placeholder="请输入搜索关键词" shape="round" />
+            </div>
+        </div>
+
+        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+            <van-swipe-item v-for="item in data.slides" :key="item.id">
+                <img :src="item.pic_image_url" alt="" style="width: 100%; height: 200px; object-fit: cover;" />
+            </van-swipe-item>
+        </van-swipe>
+
+        <van-row justify="space-around">
+            <van-col v-for="(value,index) in data.nav2s" :key="value.id" span="11" @click="goOrderTwo(index)">
+                <van-image :src="value.pic_image_url" />
+            </van-col>
+        </van-row>
+
+        <van-row justify="space-around" v-for="value in data.hospitals" :key="value.id" class="hospital-item"
+            @click="goOrder(value)">
+            <van-col span="6">
+                <van-image width="100" height="90" :src="value.avatar_url" />
+            </van-col>
+            <van-col span="15">
+                <div class="hospital-info">
+                    <h2 class="hospital-name">{{ value.name }}</h2>
+                    <p class="hospital-rank">{{ value.rank }} {{ value.label }}</p>
+                    <p class="hospital-intro">{{ value.intro }}</p>
+                </div>
+            </van-col>
+        </van-row>
+    </div>
+</template>
+
+<script setup lang="ts">
+    import { reactive, ref, onMounted, getCurrentInstance } from 'vue';
+    import { type HomeHospitals, type HomeIndex } from '@/types/h5_index';
+    import { type h5IndexResponse,type ApiResponse } from '@/types/response';
+
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
+
+    const instance = getCurrentInstance()
+    const proxy = instance?.proxy as any
+
+    // 搜索框的值
+    const value = ref('');
+    //主页数据
+    const data = reactive<HomeIndex>({
+        now: '',
+        hospitals: [],
+        nav2s: [],
+        navs: [],
+        slides: []
+    })
+
+    onMounted(() => {
+        proxy.$api.homeIndex().then((res: ApiResponse<h5IndexResponse>) => {
+            Object.assign(data, res.data.data);
+            console.log(data);
+        })
+    })
+
+    // 跳转到订单页面
+    const goOrderTwo=(index:number)=>{
+        router.push(`/createOrder?id=${data.hospitals[index]?.id}`)
+    }
+
+     // 跳转到订单页面
+     const goOrder=(data:HomeHospitals)=>{
+        router.push(`/createOrder?id=${data.id}`)
+    }
+
+
+
+</script>
+
+<style lang="less" scoped>
+    .home-container {
+        padding-bottom: 4rem; 
+        
+    }
+    
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        height: 50px;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            width: 40%;
+            .header-left-text {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-right: 5px;
+            }
+        }
+
+        .header-right {
+            display: flex;
+            justify-content: flex-end;
+            width: 60%;
+        }
+
+    }
+
+    .hospital-item {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0.1rem;
+        margin-top: 1.4rem;
+        
+        .hospital-info {
+            .hospital-name {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .hospital-rank {
+                font-size: 1rem;
+                font-weight: bold;
+                color: rgb(18, 140, 126);
+            }
+
+            .hospital-intro {
+                margin: .5rem 0;
+                font-size: .8rem;
+                color: rgb(102, 102, 102);
+            }
+        }
+    }
+
+
+</style>

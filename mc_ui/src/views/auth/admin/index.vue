@@ -72,7 +72,8 @@ import { ref, reactive, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { type FormInstance } from 'element-plus'
-import { type PermissionGroup, type Permissions } from '@/types/permisson'
+import { type PermissionGroup } from '@/types/permission_group'
+import { type AccountInfo } from '@/types/account'
 import dayjs from 'dayjs'
 
 const route = useRoute()
@@ -96,7 +97,7 @@ const paginationData = {
 
 // 列表数据
 const tableData = reactive({
-  list: <Permissions[]>[],
+  list: <AccountInfo[]>[],
   total: 0,
 })
 
@@ -112,15 +113,14 @@ onMounted(() => {
 })
 // 权限名称
 const permissionName = (id: number) => {
-  const data = options.value.find((item) => item.id === id)
-  return data ? data.name : '超级管理员'
+  const data = options.value.find((item: PermissionGroup) => item.id === id)
+  return data?.name || '超级管理员'
 }
 //请求列表数据
 const getList = () => {
   authAdmin(paginationData).then((res) => {
     // 处理数据类型
-    const { list, total } = res.data.data as { list: Permissions[]; total: number }
-    console.log(list)
+    const { list, total } = res.data.data as { list: AccountInfo[]; total: number }
     list.forEach((item) => {
       item.createTime = dayjs(item.createTime).format('YYYY-MM-DD')
       const data = JSON.parse(localStorage.userInfo)

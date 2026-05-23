@@ -43,9 +43,9 @@
           :data="permissionData"
           show-checkbox
           node-key="id"
-          :default-expanded-keys="[2, 3]"
-          :default-checked-keys="defaultChecked"
           ref="treeRef"
+          :default-expanded-keys="[2, 3]" 
+          :default-checked-keys="defalutChecked"
         />
       </el-form-item>
     </el-form>
@@ -63,7 +63,7 @@ import { onMounted } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 
 import { type FormInstance } from 'element-plus'
-import { type MenuGroup, type MenuList } from '@/types/menu'
+import { type UserMenu, type MenuList } from '@/types/menu'
 
 import PanelHead from '@/components/panel/PanelHead.vue'
 
@@ -74,18 +74,18 @@ const dialogTableVisible = ref(false)
 //权限菜单数据
 const form = reactive({
   name: '',
-  permissions: '',
+  permissions: <number[]>[],
   id: 0,
 })
 
 // 权限窗口菜单结构
-const permissionData = ref<MenuGroup[]>([])
+const permissionData = ref<UserMenu[]>([])
 
 const treeRef = ref()
 const formRef = ref()
 
 // 默认选中
-const defaultChecked = [4, 5]
+const defalutChecked = [4, 5]
 
 // 获取权限数据
 onMounted(() => {
@@ -110,9 +110,9 @@ const tableData = reactive({
 //请求列表数据
 const getList = () => {
   menuList(paginationData).then((res) => {
-    const { list, total } = res.data.data
-    tableData.list = list
-    tableData.total = total
+     const { list, total } = res.data.data as { list: MenuList[]; total: number }
+     tableData.total =total
+     tableData.list = list
   })
 }
 
@@ -129,8 +129,9 @@ const handleCurrentChange = (val: number) => {
 }
 
 // 打开弹窗
-const open = (rowData?: { id: number; name: string; permissions: string }) => {
+const open = (rowData?: { id: number; name: string; permissions: number[] }) => {
   dialogTableVisible.value = true
+  console.log(rowData)
   // 编辑
   nextTick(() => {
     if (rowData && rowData.id) {
@@ -139,7 +140,9 @@ const open = (rowData?: { id: number; name: string; permissions: string }) => {
         permissions: rowData.permissions,
         id: rowData.id,
       })
-      treeRef.value.setCheckedKeys(rowData.permissions)
+      treeRef.value.setCheckedKeys(rowData.permissions || [])
+    } else {
+      treeRef.value.setCheckedKeys([])
     }
   })
 }
@@ -148,7 +151,7 @@ const beforeClose = () => {
   // 重置表单
   formRef.value.resetFields()
   // 取消选中
-  treeRef.value.setCheckedKeys(defaultChecked)
+  treeRef.value.setCheckedKeys([])
   dialogTableVisible.value = false
 }
 
@@ -158,8 +161,8 @@ const confirm = async (formEl: FormInstance | undefined) => {
   // 校验
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      const checkedKeys = JSON.stringify(treeRef.value.getCheckedKeys())
-      await userSetmenu({ id: form.id, name: form.name, permissions: checkedKeys })
+      const checkedKeys = treeRef.value.getCheckedKeys()
+      await userSetmenu({ id: form.id, name: form.name, permissions: JSON.stringify(checkedKeys) })
       getList()
       beforeClose()
     } else {

@@ -167,7 +167,7 @@
 
     import { type FormInstance } from 'element-plus'
     import { type PhotoList } from '@/types/companion'
-    import { type CompanionRequest,type DeleteCompanionRequest } from '@/types/api'
+    import { type CompanionRequest,type DeleteCompanionRequest } from '@/types/api.request'
 
     import PanelHead from '@/components/panel/PanelHead.vue'
     import dayjs from 'dayjs'

@@ -30,7 +30,9 @@ public class WebConfig implements WebMvcConfigurer {
                         "/get/code",
                         "check/code",
                         "/user/authentication",
-                        "/login"
+                        "/login",
+                        "/Index/index",
+                        "/h5/companion"
                 );
     }
 }

@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+html, body {
+  overflow-x: hidden;
+}
+
+body{
+  background-color: #fafafa;
+}
+
+.custom-notify {
+        min-height: 48px !important;
+        line-height: 48px !important;
+        padding: 0 16px !important;
+        font-size: 16px !important;
+}

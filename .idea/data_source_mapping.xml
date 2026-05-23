@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/mc_server/src/main/resources/db/h5_schema.sql" value="9ddb5bd5-e916-422f-abfe-db0e424e8ed2" />
+  </component>
+</project>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e6c8f2ad-8c15-46c9-aea1-a7ee48211f10" name="更改" comment="部分接口的实现和对接调试的完成">
+      <change afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/interceptor/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/interceptor/TokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/companion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/companion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/permisson.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/auth/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/auth/admin/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/auth/group/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/auth/group/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;miemielq20&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/miemielq20/Medical-Companionship--System.git&quot;,
+    &quot;accountId&quot;: &quot;3cacf451-42d7-45c1-8eb7-b6c7f1b243d7&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3DbMhnt9cWJJNIEJD6e3EWp5W5h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.McApiApplication.executor": "Run",
+    "Spring Boot.McVueApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/25975/Desktop/MedicalCompanionSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_ui\\node_modules\\prettier",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.itangcent.idea.plugin.configurable.AccountConfigurable.apifox",
+    "ts.external.directory.path": "C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_h5\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.McVueApplication.executor": "Run"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.McApiApplication">
+    <configuration name="McApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ALTERNATIVE_JRE_PATH" value="21 (10)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="mc_server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mc_server.McServeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="McServeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="mc_server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mc_server.McServeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.McApiApplication" />
+      <item itemvalue="Spring Boot.McServeApplication" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e6c8f2ad-8c15-46c9-aea1-a7ee48211f10" name="更改" comment="" />
+      <created>1778546437335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778546437335</updated>
+      <workItem from="1778546438540" duration="144000" />
+      <workItem from="1778546643532" duration="125000" />
+      <workItem from="1778546813912" duration="149000" />
+      <workItem from="1778546980747" duration="2666000" />
+      <workItem from="1778550602002" duration="1114000" />
+      <workItem from="1778551776498" duration="332000" />
+      <workItem from="1778552119387" duration="353000" />
+      <workItem from="1778552682007" duration="4100000" />
+      <workItem from="1778567274332" duration="10205000" />
+      <workItem from="1778578068325" duration="1177000" />
+      <workItem from="1778579256730" duration="4328000" />
+      <workItem from="1778584198042" duration="5371000" />
+      <workItem from="1778636645305" duration="6380000" />
+      <workItem from="1778715743159" duration="19447000" />
+      <workItem from="1778755014810" duration="9000" />
+      <workItem from="1778810035625" duration="6119000" />
+      <workItem from="1778826760986" duration="5478000" />
+      <workItem from="1779017007268" duration="4938000" />
+      <workItem from="1779069701703" duration="11352000" />
+      <workItem from="1779154321738" duration="1004000" />
+      <workItem from="1779159781399" duration="700000" />
+      <workItem from="1779171714778" duration="3843000" />
+      <workItem from="1779234237452" duration="2000000" />
+      <workItem from="1779346103026" duration="1949000" />
+      <workItem from="1779352414158" duration="1807000" />
+      <workItem from="1779535351433" duration="1966000" />
+    </task>
+    <task id="LOCAL-00001" summary="部分的实现和对接调试的完成">
+      <option name="closed" value="true" />
+      <created>1779088970831</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779088970831</updated>
+    </task>
+    <task id="LOCAL-00002" summary="部分接口的实现和对接调试的完成">
+      <option name="closed" value="true" />
+      <created>1779090136357</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779090136357</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="部分的实现和对接调试的完成" />
+    <MESSAGE value="部分接口的实现和对接调试的完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="部分接口的实现和对接调试的完成" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
