@@ -31,9 +31,9 @@ public class CompanionService {
     }
 
     //获取所有陪护师(分页)
-    public PageInfo<CompanionList> getAllCompanionList(int pageNum, int pageSize, Integer createUserId) {
+    public PageInfo<CompanionList> getAllCompanionList(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<CompanionList> list = companionMapper.getAllCompanionList(createUserId);
+        List<CompanionList> list = companionMapper.getAllCompanionList();
         PageInfo<CompanionList> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }

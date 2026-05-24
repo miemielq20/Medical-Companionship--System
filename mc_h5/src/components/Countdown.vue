@@ -1,34 +1,33 @@
 <template>
-    <span class="countdown" :class="{ 'expired': isExpired }">
+    <span class="countdown" :class="{ expired: isExpired }">
         {{ countdownText }}
     </span>
 </template>
 
 <script lang="ts" setup>
-    import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+    import { computed, onUnmounted, ref, watch } from 'vue';
 
-    // 定义props
     interface Props {
-        timeEnd?: number;  // 结束时间戳（毫秒），可选
+        timeEnd?: number;
     }
 
     const props = withDefaults(defineProps<Props>(), {
         timeEnd: 0
     });
 
-    // 剩余秒数
+    const emit = defineEmits<{
+        expired: [];
+    }>();
+
     const remainingSeconds = ref(0);
-    
-    // 定时器
+    const expiredEmitted = ref(false);
     let timer: number | null = null;
 
-    // 是否已过期
     const isExpired = computed(() => remainingSeconds.value <= 0);
 
-    // 倒计时文本
     const countdownText = computed(() => {
         if (isExpired.value) {
-            return ;
+            return '00:00:00';
         }
 
         const hours = Math.floor(remainingSeconds.value / 3600);
@@ -38,42 +37,6 @@
         return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     });
 
-    // 计算剩余秒数
-    const calculateRemainingTime = () => {
-        if (!props.timeEnd || props.timeEnd === 0) {
-            remainingSeconds.value = 0;
-            return;
-        }
-
-        // timeEnd已经是时间戳（毫秒），直接使用
-        const endTime = props.timeEnd;
-        const now = Date.now();
-        const diff = endTime - now;
-
-        if (diff <= 0) {
-            remainingSeconds.value = 0;
-            stopTimer();
-        } else {
-            remainingSeconds.value = Math.floor(diff / 1000);
-        }
-    };
-
-    // 启动定时器
-    const startTimer = () => {
-        stopTimer(); // 先清除已有的定时器
-        calculateRemainingTime();
-        
-        timer = window.setInterval(() => {
-            calculateRemainingTime();
-            
-            // 如果已过期，停止定时器
-            if (remainingSeconds.value <= 0) {
-                stopTimer();
-            }
-        }, 1000);
-    };
-
-    // 停止定时器
     const stopTimer = () => {
         if (timer !== null) {
             clearInterval(timer);
@@ -81,27 +44,46 @@
         }
     };
 
-    // 监听timeEnd变化
-    watch(() => props.timeEnd, (newVal) => {
-        if (newVal) {
-            startTimer();
-        } else {
-            stopTimer();
-            remainingSeconds.value = 0;
+    const emitExpired = () => {
+        if (!expiredEmitted.value) {
+            expiredEmitted.value = true;
+            emit('expired');
         }
+    };
+
+    const calculateRemainingTime = () => {
+        if (!props.timeEnd) {
+            remainingSeconds.value = 0;
+            stopTimer();
+            return;
+        }
+
+        const diff = props.timeEnd - Date.now();
+        if (diff <= 0) {
+            remainingSeconds.value = 0;
+            stopTimer();
+            emitExpired();
+            return;
+        }
+
+        remainingSeconds.value = Math.floor(diff / 1000);
+    };
+
+    const startTimer = () => {
+        stopTimer();
+        calculateRemainingTime();
+
+        if (!isExpired.value) {
+            timer = window.setInterval(calculateRemainingTime, 1000);
+        }
+    };
+
+    watch(() => props.timeEnd, () => {
+        expiredEmitted.value = false;
+        startTimer();
     }, { immediate: true });
 
-    // 组件挂载时启动定时器
-    onMounted(() => {
-        if (props.timeEnd) {
-            startTimer();
-        }
-    });
-
-    // 组件卸载时清除定时器
-    onUnmounted(() => {
-        stopTimer();
-    });
+    onUnmounted(stopTimer);
 </script>
 
 <style lang="less" scoped>

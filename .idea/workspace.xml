@@ -5,22 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6c8f2ad-8c15-46c9-aea1-a7ee48211f10" name="更改" comment="部分接口的实现和对接调试的完成">
-      <change afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/components/Countdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/components/Countdown.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/Main.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/detail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/detail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/order/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/order/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/user/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/utils/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/utils/request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/interceptor/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/interceptor/TokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/api/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/api.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/companion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/companion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/permisson.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/user.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/auth/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/auth/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/auth/group/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/auth/group/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/CompanionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/CompanionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/CompanionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/CompanionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/H5Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/H5Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/CompanionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/CompanionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/H5Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/H5Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/CompanionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/CompanionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/H5Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/H5Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/H5CompanionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/H5CompanionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeHospitalDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeHospitalDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeIndexResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeIndexResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeNavDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeNavDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeSlideDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeSlideDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HospitalOptionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HospitalOptionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderClientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderClientDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/ServiceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/ServiceDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeBanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeNav.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeNav.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/Hospital.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/Hospital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/interceptor/TokenInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/interceptor/TokenInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/CompanionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/CompanionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/H5Mapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/H5Mapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/CompanionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/CompanionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/H5Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/H5Service.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +89,9 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -174,7 +206,7 @@
       <workItem from="1779234237452" duration="2000000" />
       <workItem from="1779346103026" duration="1949000" />
       <workItem from="1779352414158" duration="1807000" />
-      <workItem from="1779535351433" duration="1966000" />
+      <workItem from="1779535351433" duration="9211000" />
     </task>
     <task id="LOCAL-00001" summary="部分的实现和对接调试的完成">
       <option name="closed" value="true" />

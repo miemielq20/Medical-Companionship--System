@@ -28,7 +28,7 @@ public class UserService {
         user.setUserName(mobile);
         user.setMobile(mobile);
         user.setPassword(password);
-        user.setPermissionsId(1);
+        user.setPermissionsId(10);
         user.setCreateTime(LocalDateTime.now());
 
         userMapper.addUser(user);
@@ -84,5 +84,7 @@ public class UserService {
     public void updateUserPermissions(String name,String permissionsId,Long id) {
          userMapper.updateUserPermissions(name, permissionsId, id);
     }
+
+
 
 }

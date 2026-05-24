@@ -2,7 +2,7 @@
     <div class="main-container">
         <RouterView />
         <van-tabbar v-model="active">
-            <van-tabbar-item v-for="item in data?.children" :key="item.path" :icon="item.meta?.icon" @click="router.push(item.path)">{{ (item.meta as any)?.name }}</van-tabbar-item>
+            <van-tabbar-item v-for="item in data?.children" :key="item.path" :icon="(item.meta as any)?.icon" @click="router.push(item.path)">{{ (item.meta as any)?.name }}</van-tabbar-item>
         </van-tabbar>
     </div>
 </template>

@@ -1,7 +1,6 @@
-
-// 验证码请求参数类型
+﻿// 验证码请求参数类型
 export type CodeRequest = {
-  tel: string;
+  phone: string;
 };
 
 // 登录请求参数类型

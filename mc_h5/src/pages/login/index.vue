@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <h1 class="title"> 用户登录</h1>
     <van-form @submit="onSubmit">
         <van-cell-group inset>
@@ -13,6 +13,9 @@
             </van-button>
         </div>
     </van-form>
+    <div class="register-link">
+        没有账号？<router-link to="/register">去注册</router-link>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -46,4 +49,14 @@
         padding: 3rem;
     }
 
+    .register-link {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #999;
+        margin-top: 1rem;
+
+        a {
+            color: #1989fa;
+        }
+    }
 </style>

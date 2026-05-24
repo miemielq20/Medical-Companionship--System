@@ -113,7 +113,9 @@ public class UserController {
             Long userId = JwtUtil.getUserIdFromToken(token);
             String permissionsId = map.get("permissions_id");
             String name = map.get("name");
+            String avatar = map.get("avatar");
             System.out.println(permissionsId);
+
             userService.updateUserPermissions(name, permissionsId, userId);
             return new AuthRequest(10000, "success", "操作成功");
         } catch (NumberFormatException e) {

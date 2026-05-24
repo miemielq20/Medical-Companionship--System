@@ -25,7 +25,7 @@ public interface CompanionMapper {
                         @Param("active") Integer active ,
                         @Param("createUserId") Integer createUserId );
     //更新陪护师
-    @Insert("UPDATE companion SET name=#{name},mobile=#{mobile},age=#{age},sex=#{sex},avatar=#{avatar},active=#{active} " +
+    @Update("UPDATE companion SET name=#{name},mobile=#{mobile},age=#{age},sex=#{sex},avatar=#{avatar},active=#{active} " +
             "WHERE id=#{id}"
     )
     int updateCompanion(@Param("id") Long id ,
@@ -36,8 +36,8 @@ public interface CompanionMapper {
                         @Param("avatar") String avatar,
                         @Param("active") Integer active    );
     //陪护师列表
-    @Select("SELECT * FROM companion WHERE create_user_id = #{createUserId} ORDER BY id DESC")
-    List<CompanionList> getAllCompanionList(@Param("createUserId") Integer createUserId);
+    @Select("SELECT * FROM companion ORDER BY id DESC")
+    List<CompanionList> getAllCompanionList();
 
     //批量删除陪护员
     @Delete("<script>" +

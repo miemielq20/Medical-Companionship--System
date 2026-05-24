@@ -87,18 +87,17 @@
         
     }
     
-    .header {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-        height: 50px;
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-
+            .header {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10px;
+                height: 50px;
+                background-color: #fff;
+                position: sticky;
+                top: 0;
+                z-index: 999;
         .header-left {
             display: flex;
             align-items: center;

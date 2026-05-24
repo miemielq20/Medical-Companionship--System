@@ -11,8 +11,8 @@ import java.util.List;
 public interface UserMapper {
 
     // 添加用户
-    @Insert("INSERT INTO user (user_name, password, permissions_id,create_time ) " +
-            "VALUES (#{userName}, #{password}, #{permissionsId},#{createTime})")
+    @Insert("INSERT INTO user (user_name, mobile, password, permissions_id, create_time) " +
+            "VALUES (#{userName}, #{mobile}, #{password}, #{permissionsId}, #{createTime})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void addUser(User user);
 
@@ -56,4 +56,6 @@ public interface UserMapper {
     int updateUserPermissions(@Param("name") String name,
                               @Param("permissionsId") String permissionsId,
                               @Param("id") Long id);
+
+
 }

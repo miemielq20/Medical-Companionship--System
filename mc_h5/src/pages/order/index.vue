@@ -20,19 +20,21 @@
                 <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
                     <div v-for="(item, index) in data" :key="index" class="order-card" @click="goOrderDetail(item)">
                         <div class="card-header">
-                            <van-image :src="item.serviceImg || item.companion?.avatar" width="5rem" height="5rem"
-                                fit="cover" />
+                            <van-image :src="item.serviceImg || item.companion?.avatar" width="5rem" height="5rem" fit="cover" />
                             <div class="card-info">
                                 <div class="service-name">{{ item.service_name }}</div>
                                 <div class="hospital-name">{{ item.hospital_name }}</div>
-                                <div class="appointment-time">预约时间:{{ item.starttime }}</div>
+                                <div class="appointment-time">预约时间: {{ formatTime(item.starttime) }}</div>
                             </div>
                             <div class="status-section">
                                 <div :class="getStatusClass(item.trade_state)">
                                     {{ item.trade_state }}
                                 </div>
-                                <Countdown v-if="item.trade_state === '待支付' && item.time_end"
-                                    :time-end="item.time_end" />
+                                <Countdown
+                                    v-if="item.trade_state === '待支付' && item.time_end"
+                                    :time-end="item.time_end"
+                                    @expired="handleOrderExpired(item)"
+                                />
                             </div>
                         </div>
                     </div>
@@ -43,25 +45,24 @@
 </template>
 
 <script lang="ts" setup>
-    import { getCurrentInstance, ref, onMounted } from "vue";
-    import { useRouter } from 'vue-router';
-    import { type order } from "@/types/order";
-    import { type ApiResponse, type orderListResponse } from "@/types/response";
+    import { getCurrentInstance, onMounted, ref } from 'vue';
+    import { useRoute, useRouter } from 'vue-router';
+    import { type order } from '@/types/order';
+    import { type ApiResponse, type orderListResponse } from '@/types/response';
     import { showNotify } from 'vant';
     import Countdown from '@/components/Countdown.vue';
 
-    const instance = getCurrentInstance()
-    const proxy = instance?.proxy as any
+    const instance = getCurrentInstance();
+    const proxy = instance?.proxy as any;
     const router = useRouter();
+    const route = useRoute();
 
-    const active = ref(0);
+    const active = ref('');
     const data = ref<order[]>([]);
     const loading = ref(false);
     const finished = ref(false);
     const refreshing = ref(false);
 
-
-    // 获取订单状态样式类
     const getStatusClass = (state: string) => {
         const classMap: Record<string, string> = {
             '待支付': 'status-wait-pay',
@@ -72,63 +73,70 @@
         return classMap[state] || '';
     };
 
-    // 获取订单列表
+    const formatTime = (value: number | string) => {
+        const timestamp = Number(value);
+        if (!Number.isFinite(timestamp)) {
+            return String(value || '');
+        }
+        return new Date(timestamp).toLocaleDateString();
+    };
+
+    const currentState = () => active.value === '' ? undefined : String(active.value);
+
     const getOrderList = (state?: string) => {
         loading.value = true;
         proxy.$api.orderList({ state }).then((res: ApiResponse<orderListResponse>) => {
             if (res.data.code === 10000) {
-                res.data.data.forEach((item: order) => {
-                    item.time_end = item.order_start_time + 7200000;  // 2小时后过期
-                });
-                data.value = res.data.data || [];
-                console.log(data.value);
-
+                data.value = (res.data.data || []).map((item: order) => ({
+                    ...item,
+                    time_end: item.time_end || item.order_start_time + 7200000
+                }));
             } else {
-                showNotify({ message: res.msg || '获取订单失败', type: 'danger' });
+                showNotify({ message: res.data.msg || '获取订单失败', type: 'danger' });
             }
         }).catch(() => {
             showNotify({ message: '请求失败', type: 'danger' });
         }).finally(() => {
             loading.value = false;
             refreshing.value = false;
+            finished.value = true;
         });
-        finished.value = true;
     };
 
-    // 下拉刷新
     const onRefresh = () => {
         finished.value = false;
-        const stateValue = active.value === 0 ? undefined : String(active.value);
-        getOrderList(stateValue);
+        getOrderList(currentState());
     };
 
-    // 加载更多
     const onLoad = () => {
         finished.value = true;
     };
 
-    // Tab切换
     const onClickTab = (item: any) => {
+        active.value = item.name;
         data.value = [];
         finished.value = false;
-
-        const stateValue = item.name === '' ? undefined : item.name;
-        getOrderList(stateValue);
+        getOrderList(currentState());
     };
 
-    // 跳转到详情页
-    const goOrderDetail = (item: any) => {
-        router.push(`/detail/?oid=${item.out_trade_no}`)
+    const handleOrderExpired = (item: order) => {
+        item.trade_state = '已取消';
+        item.service_state = '已取消';
+        getOrderList(currentState());
     };
 
-    // 返回上一页
+    const goOrderDetail = (item: order) => {
+        router.push(`/detail/?oid=${item.out_trade_no}`);
+    };
+
     const back = () => {
         router.go(-1);
     };
 
-    // 初始化加载
     onMounted(() => {
-        getOrderList();
+        const stateQuery = (route.query.state as string) || '';
+        active.value = stateQuery;
+        getOrderList(currentState());
     });
 </script>
 
@@ -227,20 +235,9 @@
                             color: #999;
                             font-size: 0.95rem;
                         }
-
-                        .countdown {
-                            margin-top: 0.3rem;
-                            font-size: 0.85rem;
-                            color: #ff6b35;
-                        }
                     }
                 }
             }
-        }
-
-        :deep(.van-empty__description) {
-            font-size: 0.9rem;
-            color: #999;
         }
     }
 </style>

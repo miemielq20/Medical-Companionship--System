@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from 'vue-router'
+﻿import { createWebHistory, createRouter } from 'vue-router'
 
 
 import Layout from '@/pages/Main.vue'
@@ -6,6 +6,7 @@ import Home from '@/pages/home/index.vue'
 import Order from '@/pages/order/index.vue'
 import User from '@/pages/user/index.vue'
 import Login from '@/pages/login/index.vue'
+import Register from '@/pages/register/index.vue'
 import createOrder from '@/pages/createOrder/index.vue'
 import detail from '@/pages/detail/index.vue'
 
@@ -48,6 +49,11 @@ const routes = [
     
   },
   {
+    path: '/register',
+    name:"register",
+    component: Register
+  },
+  {
     path: '/createOrder',
     name:"createOrder",
     component: createOrder
@@ -57,6 +63,7 @@ const routes = [
     name:"detail",
     component: detail
   },
+  
 ]
 
 export default createRouter({

@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -73,4 +74,8 @@ public interface H5Mapper {
 
     @Select("SELECT * FROM medical_order WHERE user_id = #{userId} AND out_trade_no = #{outTradeNo} LIMIT 1")
     MedicalOrder selectOrderByNoAndUserId(@Param("outTradeNo") String outTradeNo, @Param("userId") Long userId);
+
+    @Update("UPDATE medical_order SET trade_state = 4, service_state = 5 " +
+            "WHERE user_id = #{userId} AND trade_state = 1 AND time_end <= #{now}")
+    int cancelExpiredUnpaidOrders(@Param("userId") Long userId, @Param("now") Long now);
 }

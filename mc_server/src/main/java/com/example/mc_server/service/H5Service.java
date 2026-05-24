@@ -118,6 +118,7 @@ public class H5Service {
     }
 
     public List<OrderDTO> getOrderList(Long userId, String state) {
+        h5Mapper.cancelExpiredUnpaidOrders(userId, System.currentTimeMillis());
         Integer stateCode = parseState(state);
         return h5Mapper.selectOrdersByUserId(userId, stateCode).stream()
                 .map(this::toOrderDTO)
@@ -128,6 +129,7 @@ public class H5Service {
         if (!StringUtils.hasText(outTradeNo)) {
             throw new RuntimeException("oid is required");
         }
+        h5Mapper.cancelExpiredUnpaidOrders(userId, System.currentTimeMillis());
         MedicalOrder order = h5Mapper.selectOrderByNoAndUserId(outTradeNo, userId);
         if (order == null) {
             throw new RuntimeException("order not found");

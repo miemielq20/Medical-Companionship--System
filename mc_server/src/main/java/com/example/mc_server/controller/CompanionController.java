@@ -84,9 +84,7 @@ public class CompanionController {
         Integer code = 500;
         String message = "failure";
         try{
-            String token = request.getHeader("x-token");
-            Long userId = JwtUtil.getUserIdFromToken(token);
-            PageInfo<CompanionList> page = companionService.getAllCompanionList(pageNum, pageSize, userId.intValue());
+            PageInfo<CompanionList> page = companionService.getAllCompanionList(pageNum, pageSize);
             data= new PageResponse<>(page.getList(), page.getTotal());
             code = 10000;
             message = "success";

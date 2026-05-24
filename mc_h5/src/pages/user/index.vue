@@ -1,13 +1,17 @@
 <template>
     <div class="user-center">
-        <div class="user-info">
+        <div class="user-info" >
             <van-image
                 round
                 :src="userInfo.avatar || 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'"
                 width="80"
                 height="80"
             />
-            <div class="user-name">{{ userInfo.name || 'admin' }}</div>
+            <div class="user-name">
+                <div>{{ userInfo.name || 'admin' }}</div>
+    
+            </div>
+        
         </div>
 
        
@@ -61,11 +65,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, getCurrentInstance } from 'vue';
 import { useRouter } from 'vue-router';
 import { showConfirmDialog, showToast } from 'vant';
 
 const router = useRouter();
+
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any;
 
 // 用户信息
 const userInfo = ref<{ name: string; avatar?: string }>({
@@ -92,14 +99,14 @@ const goToAllOrders = () => {
 
 // 跳转到指定状态的订单列表
 const goToOrderList = (state: string) => {
-    // 根据状态映射到对应的路由参数
+    // 根据状态映射到对应的路由参数（与订单页 tab name 保持一致）
     const stateMap: Record<string, string> = {
-        '待支付': 'unpaid',
-        '待服务': 'pending',
-        '已完成': 'completed',
-        '已取消': 'cancelled'
+        '待支付': '1',
+        '待服务': '2',
+        '已完成': '3',
+        '已取消': '4'
     };
-    
+
     const queryState = stateMap[state] || '';
     router.push({
         path: '/order',
@@ -112,6 +119,8 @@ const goToServiceManage = () => {
     showToast('服务对象管理功能开发中...');
     // router.push('/service-manage');
 };
+
+
 
 // 处理分享
 const handleShare = () => {
@@ -141,9 +150,10 @@ const handleLogout = async () => {
 
 <style scoped lang="less">
 .user-center {
-    min-height: 100vh;
+    min-height: calc(100dvh - 50px);
+    box-sizing: border-box;
     background-color: #f7f8fa;
-    padding-bottom: 3.5rem;
+    padding-bottom: 1rem;
 
     .user-info {
         display: flex;

@@ -72,8 +72,11 @@
                 <el-input v-model="form.name" placeholder="请输入昵称" />
             </el-form-item>
             <el-form-item prop="avatar" label="头像">
-                <el-button v-if="!form.avatar" type="primary" @click="dialogAvatarVisible = true">点击上传</el-button>
-                <el-image v-else :src="form.avatar" style="width: 100px; height: 100px;" />
+                <el-button v-if="!form.avatar" type="primary" @click="openAvatarDialog">点击上传</el-button>
+                <div v-else class="avatar-preview">
+                    <el-image :src="form.avatar" style="width: 100px; height: 100px;" />
+                    <el-button type="primary" link @click="openAvatarDialog">更换头像</el-button>
+                </div>
             </el-form-item>
             <el-form-item label="性别" prop="sex">
                 <el-select v-model="form.sex" placeholder="请选择性别">
@@ -154,6 +157,12 @@
             }
         }
 
+    }
+
+    .avatar-preview {
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
 </style>
 
