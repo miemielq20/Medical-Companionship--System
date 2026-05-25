@@ -47,7 +47,7 @@ public class JsonListTypeHandler extends BaseTypeHandler<List<Integer>> {
         try {
             return JSONUtil.parseArray(json).toList(Integer.class);
         } catch (Exception e) {
-            // 一定要打日志，不然你永远不知道为什么是 null
+           
             e.printStackTrace();
             return Collections.emptyList();
         }

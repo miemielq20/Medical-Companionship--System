@@ -53,7 +53,7 @@ export type MenuListResponse = ApiResponse & {
 
 //用户头像列表响应
 export type PhotoListResponse = ApiResponse & {
-  data: PhotoList;
+  data: PhotoList[];
 };
 
 //陪护员列表响应

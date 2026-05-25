@@ -65,6 +65,10 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * H5端个人中心页面
+ * 展示用户头像昵称、订单快捷入口、功能菜单、退出登录
+ */
 import { ref, onMounted, getCurrentInstance } from 'vue';
 import { useRouter } from 'vue-router';
 import { showConfirmDialog, showToast } from 'vant';
@@ -93,11 +97,13 @@ onMounted(() => {
 });
 
 // 跳转到全部订单
+/** 跳转到全部订单列表 */
 const goToAllOrders = () => {
     router.push('/order');
 };
 
 // 跳转到指定状态的订单列表
+/** 跳转到指定状态的订单列表 */
 const goToOrderList = (state: string) => {
     // 根据状态映射到对应的路由参数（与订单页 tab name 保持一致）
     const stateMap: Record<string, string> = {
@@ -128,6 +134,7 @@ const handleShare = () => {
 };
 
 // 退出登录
+/** 退出登录：清除token和用户信息，跳转到登录页 */
 const handleLogout = async () => {
     try {
         await showConfirmDialog({
@@ -136,8 +143,8 @@ const handleLogout = async () => {
         });
 
         // 清除本地存储的token和用户信息
-        localStorage.removeItem('h5_token');
-        localStorage.removeItem('h5_userInfo');
+        localStorage.removeItem('h5-token');
+        localStorage.removeItem('h5-userInfo');
 
         // 跳转到登录页
         router.push('/login');

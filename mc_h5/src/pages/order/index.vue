@@ -45,7 +45,11 @@
 </template>
 
 <script lang="ts" setup>
-    import { getCurrentInstance, onMounted, ref } from 'vue';
+    /**
+ * H5端订单列表页
+ * 支持按状态Tab切换、下拉刷新、倒计时显示、超时自动取消
+ */
+import { getCurrentInstance, onMounted, ref } from 'vue';
     import { useRoute, useRouter } from 'vue-router';
     import { type order } from '@/types/order';
     import { type ApiResponse, type orderListResponse } from '@/types/response';
@@ -63,7 +67,8 @@
     const finished = ref(false);
     const refreshing = ref(false);
 
-    const getStatusClass = (state: string) => {
+    /** 根据订单状态返回对应的CSS类名 */
+const getStatusClass = (state: string) => {
         const classMap: Record<string, string> = {
             '待支付': 'status-wait-pay',
             '待服务': 'status-wait-service',
@@ -73,7 +78,8 @@
         return classMap[state] || '';
     };
 
-    const formatTime = (value: number | string) => {
+    /** 格式化时间戳为日期字符串 */
+const formatTime = (value: number | string) => {
         const timestamp = Number(value);
         if (!Number.isFinite(timestamp)) {
             return String(value || '');
@@ -81,9 +87,11 @@
         return new Date(timestamp).toLocaleDateString();
     };
 
-    const currentState = () => active.value === '' ? undefined : String(active.value);
+    /** 获取当前选中的Tab状态值 */
+const currentState = () => active.value === '' ? undefined : String(active.value);
 
-    const getOrderList = (state?: string) => {
+    /** 请求订单列表 */
+const getOrderList = (state?: string) => {
         loading.value = true;
         proxy.$api.orderList({ state }).then((res: ApiResponse<orderListResponse>) => {
             if (res.data.code === 10000) {
@@ -103,7 +111,8 @@
         });
     };
 
-    const onRefresh = () => {
+    /** 下拉刷新 */
+const onRefresh = () => {
         finished.value = false;
         getOrderList(currentState());
     };
@@ -112,20 +121,23 @@
         finished.value = true;
     };
 
-    const onClickTab = (item: any) => {
+    /** Tab切换：重置数据并重新加载 */
+const onClickTab = (item: any) => {
         active.value = item.name;
         data.value = [];
         finished.value = false;
         getOrderList(currentState());
     };
 
-    const handleOrderExpired = (item: order) => {
+    /** 订单超时处理：本地标记为已取消并刷新列表 */
+const handleOrderExpired = (item: order) => {
         item.trade_state = '已取消';
         item.service_state = '已取消';
         getOrderList(currentState());
     };
 
-    const goOrderDetail = (item: order) => {
+    /** 跳转到订单详情页 */
+const goOrderDetail = (item: order) => {
         router.push(`/detail/?oid=${item.out_trade_no}`);
     };
 

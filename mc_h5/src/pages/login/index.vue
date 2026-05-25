@@ -1,4 +1,4 @@
-﻿<template>
+<template>
     <h1 class="title"> 用户登录</h1>
     <van-form @submit="onSubmit">
         <van-cell-group inset>
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
     import router from '@/router';
+import { useRoute } from 'vue-router';
     import { reactive, getCurrentInstance } from 'vue';
     import {type LoginReponse,type ApiResponse} from '@/types/response';
     const instance = getCurrentInstance()
@@ -36,7 +37,8 @@
             if (res.data.code === 10000) {
                 localStorage.setItem('h5-token',res.data.data.token);
                 localStorage.setItem('h5-userInfo', JSON.stringify(res.data.data.userInfo));
-                router.push('/');
+                            const redirect = router.currentRoute.value.query.redirect as string;
+            router.push(redirect || '/');
             }
         });
     };

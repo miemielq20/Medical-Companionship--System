@@ -1,7 +1,14 @@
+/**
+ * Axios实例配置
+ * - baseURL指向后端8080端口
+ * - 请求拦截器：自动附带x-token（白名单除外）
+ * - 响应拦截器：token过期(-2)自动跳转登录页
+ */
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
 
 
+// 创建Axios实例
 const http = axios.create({
   baseURL: 'http://localhost:8080',
   timeout: 10000,
@@ -9,6 +16,7 @@ const http = axios.create({
 
 
 // 添加请求拦截器
+// 请求拦截器：自动附带token
 http.interceptors.request.use(function (config) {
     const token = localStorage.getItem('token');
     const whiteUrls=['/get/code','/user/authentication','/login']
@@ -23,6 +31,7 @@ http.interceptors.request.use(function (config) {
   });
 
 // 添加响应拦截器
+// 响应拦截器：处理token过期等异常
 http.interceptors.response.use(function (response) {
     if(response.data.code==-1){
         ElMessage.error(response.data.msg)

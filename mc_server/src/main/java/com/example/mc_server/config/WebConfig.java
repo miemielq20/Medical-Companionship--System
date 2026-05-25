@@ -38,7 +38,6 @@ public class WebConfig implements WebMvcConfigurer {
                         "/user/authentication",
                         "/login",
                         "/Index/index",
-                        "/h5/companion"
-                );
+                        "/h5/companion");
     }
 }

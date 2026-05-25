@@ -2,8 +2,8 @@
   <el-row class="tac">
     <el-col :span="24">
       <el-menu :style="{ width: isCollapse ? '50px' : '200px' }" active-text-color="#ffd04b" background-color="#545c64"
-        class="el-menu-vertical-demo" :default-active="menuActive" text-color="#fff"   :collapse="isCollapse" >
-        <p class="title">{{ isCollapse?'DIDI' :'DIDI陪诊' }}</p>
+        class="el-menu-vertical-demo" :default-active="menuActive" text-color="#fff"  :collapse="isCollapse" >
+        <p class="title">{{ isCollapse ? '陪你' : '陪你医起' }}</p>
         <TreeMenu :AsideMenu="AsideMenu" :Aindex="'1'"/>
       </el-menu>
     </el-col> 
@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 
-  import TreeMenu from '@/components/aside/TreeMenu.vue'
+  import TreeMenu from '@/components/Aside/TreeMenu.vue'
   import { useAsideStore } from '@/stores/aside'
   import { useRouterStore } from '@/stores/router'
 

@@ -5,51 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6c8f2ad-8c15-46c9-aea1-a7ee48211f10" name="更改" comment="部分接口的实现和对接调试的完成">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/src/components/Countdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/components/Countdown.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/Main.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/detail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/detail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/home/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/order/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/order/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_h5/src/pages/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/pages/user/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_h5/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_h5/src/types/response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/types/response.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_h5/src/utils/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_h5/src/utils/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/common/handler/JsonListTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/common/handler/JsonListTypeHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/CompanionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/CompanionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/CompanionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/CompanionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/H5Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/H5Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/SmsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/controller/SmsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/H5Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/H5Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/CompanionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/CompanionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/H5Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/H5Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/SmsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/SmsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/java/com/example/mc_server/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/CompanionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/CompanionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/H5Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/H5Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/CreateOrderResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/H5CompanionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/H5CompanionResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeHospitalDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeHospitalDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeIndexResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeIndexResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeNavDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeNavDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeSlideDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HomeSlideDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HospitalOptionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/HospitalOptionDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderClientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderClientDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/OrderDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/ServiceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/dto/ServiceDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeNav.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/H5HomeNav.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/Hospital.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/Hospital.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/entity/MedicalService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/interceptor/TokenInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/interceptor/TokenInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/CompanionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/CompanionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/SmsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/controller/SmsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/H5Mapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/H5Mapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/CompanionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/CompanionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/H5Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/H5Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/SmsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/classes/com/example/mc_server/service/SmsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mc_server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/components/Aside/Aside.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/components/Aside/Aside.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/api.request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/api.request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/types/response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/types/response.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/dashboard/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/vppz/order/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/vppz/order/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mc_ui/src/views/vppz/staff/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,46 +93,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.McApiApplication.executor": "Run",
-    "Spring Boot.McVueApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/25975/Desktop/MedicalCompanionSystem",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_ui\\node_modules\\prettier",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.itangcent.idea.plugin.configurable.AccountConfigurable.apifox",
-    "ts.external.directory.path": "C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_h5\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.McVueApplication.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.McApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.McVueApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/25975/Desktop/MedicalCompanionSystem&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_ui\\node_modules\\prettier&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.itangcent.idea.plugin.configurable.AccountConfigurable.apifox&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\25975\\Desktop\\MedicalCompanionSystem\\mc_h5\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.McVueApplication.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -207,6 +199,8 @@
       <workItem from="1779346103026" duration="1949000" />
       <workItem from="1779352414158" duration="1807000" />
       <workItem from="1779535351433" duration="9211000" />
+      <workItem from="1779601241612" duration="324000" />
+      <workItem from="1779630782917" duration="1951000" />
     </task>
     <task id="LOCAL-00001" summary="部分的实现和对接调试的完成">
       <option name="closed" value="true" />

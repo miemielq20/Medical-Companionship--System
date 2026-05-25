@@ -51,3 +51,13 @@ export type CompanionListRequest = AutAdminRequest;
 export type DeleteCompanionRequest = {
   id: { id: number }[];
 };
+
+export type CreateOrderRequest = {
+    hospital_id: number;
+    hospital_name: string;
+    demand: string;
+    companion_id: number;
+    receiveAddress: string;
+    tel: string;
+    starttime: string;
+};

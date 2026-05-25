@@ -1,5 +1,6 @@
 <template>
     <div class="home-container">
+        <van-sticky>
         <div class="header">
             <div class="header-left">
                 <span class="header-left-text">中部地区</span>
@@ -9,6 +10,7 @@
                 <van-search v-model="value" placeholder="请输入搜索关键词" shape="round" />
             </div>
         </div>
+        </van-sticky>
 
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
             <van-swipe-item v-for="item in data.slides" :key="item.id">
@@ -39,7 +41,11 @@
 </template>
 
 <script setup lang="ts">
-    import { reactive, ref, onMounted, getCurrentInstance } from 'vue';
+    /**
+ * H5端首页
+ * 展示轮播图、导航入口、推荐医院列表，顶部搜索栏吸顶固定
+ */
+import { reactive, ref, onMounted, getCurrentInstance } from 'vue';
     import { type HomeHospitals, type HomeIndex } from '@/types/h5_index';
     import { type h5IndexResponse,type ApiResponse } from '@/types/response';
 
@@ -68,11 +74,13 @@
     })
 
     // 跳转到订单页面
+    /** 点击导航入口跳转到下单页 */
     const goOrderTwo=(index:number)=>{
         router.push(`/createOrder?id=${data.hospitals[index]?.id}`)
     }
 
      // 跳转到订单页面
+     /** 点击医院卡片跳转到下单页 */
      const goOrder=(data:HomeHospitals)=>{
         router.push(`/createOrder?id=${data.id}`)
     }
@@ -95,7 +103,6 @@
                 padding: 0 10px;
                 height: 50px;
                 background-color: #fff;
-                position: sticky;
                 top: 0;
                 z-index: 999;
         .header-left {

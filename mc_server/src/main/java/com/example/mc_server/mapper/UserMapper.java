@@ -1,4 +1,4 @@
-package com.example.mc_server.mapper;
+﻿package com.example.mc_server.mapper;
 
 import com.example.mc_server.entity.Menu;
 import com.example.mc_server.entity.PermissionGroup;

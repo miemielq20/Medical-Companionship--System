@@ -1,7 +1,6 @@
 com\example\mc_server\dto\CreateOrderRequest.class
 com\example\mc_server\common\handler\JsonListTypeHandler.class
 com\example\mc_server\interceptor\TokenInterceptor.class
-com\example\mc_server\mapper\H5Mapper.class
 com\example\mc_server\dto\MenuSelectList.class
 com\example\mc_server\dto\H5CompanionResponse.class
 com\example\mc_server\dto\HospitalOptionDTO.class
@@ -29,7 +28,6 @@ com\example\mc_server\dto\LoginResponse$UserInfo.class
 com\example\mc_server\dto\MenuTree$Meta.class
 com\example\mc_server\dto\MenuTree.class
 com\example\mc_server\entity\H5HomeBanner.class
-com\example\mc_server\controller\H5Controller.class
 com\example\mc_server\dto\HomeNavDTO.class
 com\example\mc_server\config\WebConfig.class
 com\example\mc_server\controller\UserController.class
@@ -44,4 +42,3 @@ com\example\mc_server\McServeApplication.class
 com\example\mc_server\dto\HomeIndexResponse.class
 com\example\mc_server\config\MybatisPlusConfig.class
 com\example\mc_server\entity\SmsRequest.class
-com\example\mc_server\service\H5Service.class

@@ -18,8 +18,6 @@ public class SmsController {
     private SmsService smsService;
     @Autowired
     private AuthService authService;
-    @Autowired
-    private UserService userService;
 
     /// 发送验证码
     @PostMapping("/get/code")
