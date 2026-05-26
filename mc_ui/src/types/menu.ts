@@ -9,7 +9,7 @@ export type AsideMenuState = {
 
 // 权限菜单
 export type MenuGroup = {
-  id: number;
+  id: string;
   label: string;
   disabled?: boolean;
   children?: MenuGroup[];
@@ -18,7 +18,7 @@ export type MenuGroup = {
 // 权限菜单数据
 export type MenuList = {
   permissions: number[]; 
-  id: number;
+  id: string;
   name: string;
   permissionName: string;
 };
@@ -28,19 +28,19 @@ export type MenuPermissions = {
   path: string;
   name: string;
   meta: {
-    id: number;
+    id: string;
     name: string;
     icon: string;
     path: string;
     describe: string;
   };
-  component: string;
+  component?: string;
   children?: MenuPermissions[];  
 };
 
 // 权限菜单树形结构
 export type UserMenu = {
-  id: number;
+  id: string;
   label: string;
   disabled?: boolean;
   children?: UserMenu[];

@@ -24,7 +24,7 @@ export const userAuthentication=(data: LoginRequest)=>{
 
 /** 用户登录 */
 export const login=(data:LoginRequest)=>{
-  return http.post<ApiResponse>('/login',data)
+  return http.post<LoginReponse>('/login',data)
 }
 
 

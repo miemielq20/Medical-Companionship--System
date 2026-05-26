@@ -11,15 +11,11 @@ export default async function getDynamicRouter() {
     try {
         const res = await menuPermissions()
         if (res.data.code === 10000) {
-            // 更新 store 中的菜单数据
-            await routerStore.dynamicMenu(res.data.data as MenuItem[])
-            // 同步标签页，移除当前权限范围外的旧 tag
+            await routerStore.dynamicMenu(res.data.data as unknown as MenuItem[])
             asideStore.syncMenuTag(routerStore.routerList)
-            // 将路由数据保存到 localStorage
             localStorage.setItem('RouterList', JSON.stringify({
                 routerList: res.data.data
             }))
-            // 添加路由到 router
             routerStore.routerList.forEach(item => {
                 router.addRoute('main', item)
             })

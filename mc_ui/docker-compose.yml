@@ -1,0 +1,9 @@
+﻿services:
+  mc-ui:
+    build: .
+    container_name: mc-ui
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -28,14 +28,12 @@ export type AutAdminReponse = ApiResponse & {
 
 /** 菜单权限下拉响应 */
 export type MenuSelectlistReponse = ApiResponse & {
-  data: PermissionGroup;
+  data: PermissionGroup[];
 };
 
 /** 用户菜单权限响应 */
 export type MenuPermissionsResponse = ApiResponse & {
-  data: {
-    list: MenuPermissions[];
-  };
+  data: MenuPermissions[];
 };
 
 /** 菜单权限响应 */
