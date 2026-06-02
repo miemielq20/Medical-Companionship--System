@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-  import Aside from '@/components/aside/Aside.vue';
+  import Aside from '@/components/Aside/Aside.vue';
   import Header from '@/components/header/Header.vue';
 import { Loading } from '@element-plus/icons-vue';
 </script>

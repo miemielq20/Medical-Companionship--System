@@ -11,8 +11,19 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // 放行 OPTIONS 请求
+        
         if ("OPTIONS".equals(request.getMethod())) {
+            return true;
+        }
+
+        // 放行 /gaode/ 接口（高德同步用，不走 token）
+        if (request.getRequestURI().contains("/gaode/")) {
+            return true;
+        }
+
+        // 放行认证相关接口（登录注册等不需要token）
+        String uri = request.getRequestURI();
+        if (uri.contains("/get/code") || uri.contains("/user/authentication") || uri.contains("/login")) {
             return true;
         }
 

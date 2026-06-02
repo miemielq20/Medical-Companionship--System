@@ -40,10 +40,9 @@ public interface H5Mapper {
 
     // ==================== 医院与服务 ====================
 
-    /** 查询启用的首页推荐医院 */
-    @Select("SELECT id, name, `rank`, label, intro, avatar_url AS avatarUrl " +
-            "FROM hospital WHERE active = 1 ORDER BY sort ASC, id ASC")
-    List<HomeHospitalDTO> selectHomeHospitals();
+    /** 查询启用的首页推荐医院，支持按省份过滤 */
+    @Select("<script>SELECT id, name, `rank`, label, intro, avatar_url AS avatarUrl FROM hospital WHERE active = 1 <if test=\"province != null and province != ''\">AND province = #{province}</if> ORDER BY id ASC</script>")
+    List<HomeHospitalDTO> selectHomeHospitals(@Param("province") String province);
 
     /** 查询所有启用医院的下拉选项 */
     @Select("SELECT id, name, service_id AS serviceId, service_price AS servicePrice " +
@@ -149,9 +148,14 @@ public interface H5Mapper {
             "ORDER BY date ASC")
     List<Map<String, Object>> selectOrderChartData(@Param("since") Long since);
 
-
     /** 支付成功后更新订单：待支付(1) -> 待服务(2)，记录微信交易号 */
     @Update("UPDATE medical_order SET trade_state = 2, service_state = 2, transaction_id = #{transactionId} " +
             "WHERE out_trade_no = #{outTradeNo} AND trade_state = 1")
     int updateOrderPaid(@Param("outTradeNo") String outTradeNo, @Param("transactionId") String transactionId);
+
+    /** 批量插入医院（高德POI同步） */
+    @Insert("INSERT INTO hospital (name, province, `rank`, label, intro, avatar_url, active, create_time, update_time) " +
+            "VALUES (#{name}, #{province}, #{rank}, #{label}, #{intro}, #{avatarUrl}, 1, NOW(), NOW())")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insertHospital(Hospital hospital);
 }

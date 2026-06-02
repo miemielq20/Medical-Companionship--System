@@ -42,14 +42,15 @@ public class H5Service {
 
     /**
      * 首页数据：当前时间、轮播图、导航入口、推荐医院
+     * @param province 可选省份过滤
      */
-    public HomeIndexResponse getHomeIndex() {
+    public HomeIndexResponse getHomeIndex(String province) {
         HomeIndexResponse response = new HomeIndexResponse();
         response.setNow(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         response.setSlides(h5Mapper.selectSlides());
         response.setNav2s(h5Mapper.selectNavs("nav2"));
         response.setNavs(h5Mapper.selectNavs("nav"));
-        response.setHospitals(h5Mapper.selectHomeHospitals());
+        response.setHospitals(h5Mapper.selectHomeHospitals(province));
         return response;
     }
 
@@ -170,7 +171,7 @@ public class H5Service {
     }
 
     /**
-     * 将状态字符串转为数字：1待支付/2待服务/3已完成/4已取消
+     * 将状态字符串转为数字：1待支付 2待服务 3已完成 4已取消
      */
     private Integer parseState(String state) {
         if (!StringUtils.hasText(state)) {
@@ -222,7 +223,7 @@ public class H5Service {
     }
 
     /**
-     * 交易状态数字转中文：1待支付/2待服务/3已完成/4已取消
+     * 交易状态数字转中文：1待支付 2待服务 3已完成 4已取消
      */
     private String tradeStateText(Integer state) {
         if (state == null) {

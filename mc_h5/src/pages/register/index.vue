@@ -62,12 +62,19 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, getCurrentInstance } from 'vue';
+import { reactive, ref, getCurrentInstance, onMounted } from 'vue';
 import { showToast } from 'vant';
 import { useRouter } from 'vue-router';
 import type { ApiResponse } from '@/types/response';
 
 const router = useRouter();
+
+// 每次进入注册页清空表单
+onMounted(() => {
+    Object.assign(form, { phone: '', code: '', password: '', confirmPassword: '' });
+    codeDisabled.value = false;
+    codeText.value = '获取验证码';
+});
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any;
 
@@ -90,31 +97,37 @@ const sendCode = async () => {
         showToast('请输入正确的手机号');
         return;
     }
+    // 立即禁用按钮并开始倒计时，防止重复点击
+    codeDisabled.value = true;
+    countdown = 60;
+    codeText.value = `${countdown}s`;
+    const timer = setInterval(() => {
+        countdown--;
+        if (countdown <= 0) {
+            clearInterval(timer);
+            codeDisabled.value = false;
+            codeText.value = '获取验证码';
+        } else {
+            codeText.value = `${countdown}s`;
+        }
+    }, 1000);
     try {
         const res = await proxy.$api.getCode({ phone });
         if (res.data.code === 10000) {
             showToast('验证码已发送');
-            codeDisabled.value = true;
-            countdown = 60;
-            codeText.value = `${countdown}s`;
-            const timer = setInterval(() => {
-                countdown--;
-                if (countdown <= 0) {
-                    clearInterval(timer);
-                    codeDisabled.value = false;
-                    codeText.value = '获取验证码';
-                } else {
-                    codeText.value = `${countdown}s`;
-                }
-            }, 1000);
         } else {
+            clearInterval(timer);
+            codeDisabled.value = false;
+            codeText.value = '获取验证码';
             showToast(res.data.msg || '发送失败');
         }
     } catch {
+        clearInterval(timer);
+        codeDisabled.value = false;
+        codeText.value = '获取验证码';
         showToast('发送验证码失败，请稍后重试');
     }
 };
-
 const onSubmit = async () => {
     if (form.password !== form.confirmPassword) {
         showToast('两次密码不一致');

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <el-row justify="center" :align="'middle'" class="container">
     <el-card class="login-card" shadow="hover">
       <template #header>
@@ -122,9 +122,9 @@
 
 
   const  routerList = computed(
-    () => { 
+    () => {
       return RouterStore.routerList
-    } 
+    }
   )
   const handChange = () => {
     formType.value = formType.value ? 0 : 1
@@ -172,15 +172,17 @@
   //获取验证码
   const countdownChange = () => {
     if (!flag.value) return
-  
+
     if (!loginForm.userName || !phoneReg.test(loginForm.userName)) {
       return ElMessage({
         message: '请输入正确的手机号格式',
         type: 'warning',
       })
-
     }
-   const time= setInterval(() => {
+
+    // 立即禁用并开始倒计时
+    flag.value = false
+    const time = setInterval(() => {
       if (countdown.time <= 0) {
         countdown.text = '获取验证码'
         countdown.time = 60
@@ -191,23 +193,31 @@
         countdown.text = countdown.time + 's'
       }
     }, 1000)
-      flag.value = false
-      //发送验证码
-      getCode({
-        tel: loginForm.userName
-      }).then(res => { 
-        if(res.data.code === 20000) {
-          ElMessage.success('验证码发送成功')
-        } else {
-          ElMessage.error(res.data.msg || '验证码发送失败')
-          flag.value = true
-        }
-      })
-  }
 
-  const submitForm = async (formEl: FormInstance | undefined) => {
+    // 异步发送验证码
+    getCode({
+      phone: loginForm.userName
+    }).then(res => {
+      if (res.data.code === 10000) {
+        ElMessage.success('验证码发送成功')
+      } else {
+        ElMessage.error(res.data.msg || '验证码发送失败')
+        // 失败时重置
+        clearInterval(time)
+        countdown.text = '获取验证码'
+        countdown.time = 60
+        flag.value = true
+      }
+    }).catch(() => {
+      clearInterval(time)
+      countdown.text = '获取验证码'
+      countdown.time = 60
+      flag.value = true
+    })
+  }
+const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
-  await formEl.validate((valid, fields) => {
+  await formEl.validate((valid) => {
     if (valid) {
         if(formType.value) {
           //注册
@@ -235,6 +245,8 @@
               } else {
                 ElMessage.error(res.data.msg )
               }
+            }).catch(() => {
+              ElMessage.error('登录失败，请检查网络连接')
             })
         }
     } else {

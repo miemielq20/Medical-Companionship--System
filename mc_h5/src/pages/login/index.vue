@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <h1 class="title"> 用户登录</h1>
     <van-form @submit="onSubmit">
         <van-cell-group inset>
@@ -21,11 +21,14 @@
 <script setup lang="ts">
     import router from '@/router';
 import { useRoute } from 'vue-router';
-    import { reactive, getCurrentInstance } from 'vue';
+    import { reactive, getCurrentInstance, onMounted } from 'vue';
     import {type LoginReponse,type ApiResponse} from '@/types/response';
     const instance = getCurrentInstance()
     const proxy = instance?.proxy as any 
 
+    onMounted(() => {
+        Object.assign(form, { userName: '', passWord: '' });
+    });
     const form = reactive({
         userName: '',
         passWord: ''

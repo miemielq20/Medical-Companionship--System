@@ -8,7 +8,7 @@ import axios from 'axios';
 
 // 创建Axios实例
 const http = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'http://localhost:8080/api',
   timeout: 10000,
   headers: {
     terminal: 'h5'
@@ -35,14 +35,14 @@ http.interceptors.response.use(function (response) {
   if (response.data.code === -2) {
     localStorage.removeItem('h5-token')
     localStorage.removeItem('h5-userInfo')
-    window.location.href = '/login'
+    if (window.location.pathname !== '/login') { window.location.href = '/login' }
   }
   return response
 }, function (error) {
   if (error.response?.status === 401) {
     localStorage.removeItem('h5-token')
     localStorage.removeItem('h5-userInfo')
-    window.location.href = '/login'
+    if (window.location.pathname !== '/login') { window.location.href = '/login' }
   }
   return Promise.reject(error)
 })

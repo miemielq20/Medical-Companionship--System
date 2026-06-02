@@ -1,0 +1,66 @@
+services:
+  # ========== MySQL ==========
+  mysql:
+    image: mysql:8.0
+    container_name: mc_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: aZhTnTG97XKX4JbY
+      MYSQL_DATABASE: mc_sys
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mc_server/src/main/resources/db/mc_sys_init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  # ========== Redis ==========
+  redis:
+    image: redis:7-alpine
+    container_name: mc_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # ========== Spring Boot 后端 ==========
+  backend:
+    build:
+      context: ./mc_server
+      dockerfile: Dockerfile
+    container_name: mc_backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mc_sys?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: aZhTnTG97XKX4JbY
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      TZ: Asia/Shanghai
+    depends_on:
+      mysql:
+        condition: service_started
+      redis:
+        condition: service_started
+
+  # ========== Nginx 前端 ==========
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: mc_frontend
+    restart: always
+    ports:
+      - "80:80"
+      - "8081:8081"
+    depends_on:
+      - backend
+
+# ========== 数据卷（重启不丢数据）==========
+volumes:
+  mysql_data:
+  redis_data:

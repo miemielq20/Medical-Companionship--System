@@ -1,0 +1,154 @@
+﻿# ============================================
+# 宝塔面板部署指南
+# 服务器公网IP：124.220.16.162
+# ============================================
+
+## 前置条件（宝塔软件商店安装）
+- MySQL 8.0+
+- Redis 7.0+
+- Java 21（JDK）
+- Nginx（宝塔默认已装）
+
+## 一、数据库准备
+1. 宝塔 → 数据库 → 添加数据库
+   - 数据库名：mc_sys
+   - 用户名：root
+   - 密码：aZhTnTG97XKX4JbY
+2. 导入数据库脚本（如有 SQL 文件请自行导入）
+
+---
+
+## 二、后端部署（mc_server）
+
+### 上传文件
+将 mc_server\target\mc_server-0.0.1-SNAPSHOT.jar 上传到服务器，
+如：/www/wwwroot/mc_server/mc_server-0.0.1-SNAPSHOT.jar
+
+### 宝塔操作
+1. 网站 → Java项目 → 添加Java项目
+   - 项目JAR路径：/www/wwwroot/mc_server/mc_server-0.0.1-SNAPSHOT.jar
+   - 端口：8080
+   - JDK版本：21
+   - 启动参数：--spring.profiles.active=prod
+   - 执行用户：root
+
+2. 启动项目
+
+---
+
+## 三、前端部署（mc_ui 管理后台）
+
+### 上传文件
+将 mc_ui\dist\ 目录下所有文件上传到 /www/wwwroot/mc_ui/
+
+### 宝塔操作
+1. 网站 → 添加站点
+   - 域名：124.220.16.162
+   - 根目录：/www/wwwroot/mc_ui
+   - PHP版本：纯静态
+
+2. 设置 → 配置文件，替换为以下内容：
+```
+server {
+    listen       80;
+    server_name  124.220.16.162;
+
+    location / {
+        root   /www/wwwroot/mc_ui;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 反向代理 /api 到后端 8080
+    location /api {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 静态资源缓存
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        root   /www/wwwroot/mc_ui;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+---
+
+## 四、前端部署（mc_h5 移动端）
+
+### 上传文件
+将 mc_h5\dist\ 目录下所有文件上传到 /www/wwwroot/mc_h5/
+
+### 宝塔操作
+1. 网站 → 添加站点
+   - 域名：124.220.16.162:8081（或用子域名如 h5.xxx.com）
+   - 根目录：/www/wwwroot/mc_h5
+   - PHP版本：纯静态
+
+2. 如果使用端口方式，需先在 安全 → 防火墙 放行 8081 端口
+
+3. 设置 → 配置文件：
+```
+server {
+    listen       8081;
+    server_name  124.220.16.162;
+
+    location / {
+        root   /www/wwwroot/mc_h5;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        root   /www/wwwroot/mc_h5;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+---
+
+## 五、验证部署
+
+1. 后端：curl http://127.0.0.1:8080/api/Index/index
+2. 管理后台：浏览器访问 http://124.220.16.162
+3. 移动端：浏览器访问 http://124.220.16.162:8081
+
+---
+
+## 六、本地构建产物路径
+- 后端JAR：mc_server\target\mc_server-0.0.1-SNAPSHOT.jar
+- 管理后台：mc_ui\dist\
+- 移动端：mc_h5\dist\
+
+---
+
+## 七、重要注意事项
+
+### 后端启动命令（务必带 prod 参数）
+java -jar mc_server-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+
+### Nginx 反向代理关键配置
+location /api 中的 proxy_pass 后面不能带斜杠！
+错误：proxy_pass http://127.0.0.1:8080/;
+正确：proxy_pass http://127.0.0.1:8080;
+
+带斜杠会去掉 /api 前缀，导致后端无法匹配接口。
+
+### 本次修复内容
+1. mc_ui 增加了 401 错误处理：登录过期自动清除状态并跳转
+2. mc_h5 修复了登录后循环跳转问题：已在 /login 页时不再重复跳转

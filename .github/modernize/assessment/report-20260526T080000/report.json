@@ -1,0 +1,24 @@
+{
+  "projectRoot": "c:/Users/25975/Desktop/MedicalCompanionSystem",
+  "timestamp": "2026-05-26T08:00:00Z",
+  "summary": "后端 mc_server 已使用 Spring Boot 4.0.6 与 Java 21（pom.xml 与 Dockerfile 均指向 Java 21）。打包为 fat JAR 并在 Dockerfile 中使用 Temurin 21 运行时。生产配置将日志写入 /www/wwwlogs/mc_server 并包含硬编码的数据库凭据。部署到宝塔可行，但需注意凭据安全、目录权限、JDK 安装或 Docker 支持、以及若要升级到“未来的”LTS 需评估第三方库与 Jakarta 迁移兼容性。",
+  "mc_server": {
+    "buildTool": "maven",
+    "springBootParent": "4.0.6",
+    "javaProperty": "21",
+    "dockerBaseImages": [
+      "maven:3.9-eclipse-temurin-21-alpine",
+      "eclipse-temurin:21-jre-alpine"
+    ],
+    "artifact": "mc_server/target/mc_server-0.0.1-SNAPSHOT.jar",
+    "prodConfigPath": "mc_server/target/classes/application-prod.properties"
+  },
+  "findings": [
+    "Java runtime is already set to 21 in pom.xml and Dockerfile (可视为当前 LTS)。",
+    "使用 Spring Boot 4.x（父 POM 4.0.6），大部分依赖应跟随父 POM 管理，但若要升级到更高的未来 LTS（>21）仍需评估第三方库兼容性。",
+    "生产配置文件包含硬编码数据库密码与第三方密钥（mc_server/target/classes/application-prod.properties），需迁移到环境变量或凭据管理。",
+    "部分关键依赖（如 mybatis-plus、pagehelper、jjwt）可能需要版本校验以确保与 Spring Boot 4 / Jakarta 命名空间兼容。",
+    "Dockerfile 使用 Temurin 21，直接运行 fat JAR 可在无 Docker 的宝塔环境下通过安装 JRE 21 启动；也可用 Docker 部署（宝塔有 Docker 插件）。",
+    "日志路径为 /www/wwwlogs/mc_server，需在服务器上创建并设置权限，或改为由容器挂载的目录。"
+  ]
+}

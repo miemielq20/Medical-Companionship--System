@@ -92,8 +92,8 @@ export const deleteCompanion=(data:DeleteCompanionRequest)=>{
 // ==================== H5端业务 ====================
 
 /** 获取首页数据（轮播图、导航、医院列表） */
-export const homeIndex=()=>{
-  return http.get<h5IndexResponse>(`/Index/index`)
+export const homeIndex=(params?:{ province?: string })=>{
+  return http.get<h5IndexResponse>(`/Index/index`, { params })
 }
 
 /** 获取陪护师选择页数据 */

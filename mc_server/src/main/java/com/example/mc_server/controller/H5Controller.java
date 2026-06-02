@@ -29,11 +29,12 @@ public class H5Controller {
 
     /**
      * H5首页数据：轮播图、导航、推荐医院
+     * @param province 可选省份过滤
      */
     @GetMapping("/Index/index")
-    public AuthRequest<HomeIndexResponse> index() {
+    public AuthRequest<HomeIndexResponse> index(@RequestParam(required = false) String province) {
         try {
-            return new AuthRequest<>(10000, "success", h5Service.getHomeIndex());
+            return new AuthRequest<>(10000, "success", h5Service.getHomeIndex(province));
         } catch (Exception e) {
             return new AuthRequest<>(500, e.getMessage(), null);
         }
@@ -65,7 +66,7 @@ public class H5Controller {
     }
 
     /**
-     * 当前用户的订单列表，可按state筛选（1待支付/2待服务/3已完成/4已取消）
+     * 当前用户的订单列表，可按state筛选（1待支付 2待服务 3已完成 4已取消）
      */
     @GetMapping("/order/list")
     public AuthRequest<List<OrderDTO>> orderList(@RequestParam(required = false) String state, HttpServletRequest request) {

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="create-order">
         <div class="header">
             <van-icon name="arrow-left" size="1.5rem" class="header-left" @click="back" />
@@ -220,7 +220,7 @@
 
     import statusBar from '@/components/bar/statusBar.vue';
     import { onMounted, reactive, getCurrentInstance, ref, computed } from 'vue';
-    import { useRouter } from 'vue-router';
+    import { useRouter, useRoute } from 'vue-router';
 
     import { type h5CompanionResponse, type ApiResponse, type CreateOrderResponse } from '@/types/response';
     import { type CreateOrderForm } from '@/types/order'
@@ -232,6 +232,7 @@
     const instance = getCurrentInstance()
     const proxy = instance?.proxy as any
     const router = useRouter();
+    const route = useRoute();
 
     // 选择医院弹出框
     const showHospital = ref(false)
@@ -373,10 +374,19 @@
             })
     };
 
-    //获取医院和陪护师数据
+    //获取医院和陪护师数据，自动匹配首页传入的医院id
     onMounted(() => {
         proxy.$api.h5Companion().then((res: ApiResponse<h5CompanionResponse>) => {
             Object.assign(data, res.data.data)
+            // 首页点击医院跳转时自动选中
+            const hospitalId = route.query.id
+            if (hospitalId) {
+                const hospital = data.hospitals.find((h: any) => String(h.id) === String(hospitalId))
+                if (hospital) {
+                    form.hospital_id = hospital.id
+                    form.hospital_name = hospital.name
+                }
+            }
         })
     })
 

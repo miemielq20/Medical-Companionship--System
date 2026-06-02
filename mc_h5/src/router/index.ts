@@ -87,21 +87,21 @@ const router = createRouter({
  * 2. 已登录用户访问登录/注册页 → 重定向到首页
  * 3. 未登录用户访问需要认证的路由 → 重定向到登录页
  */
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
   const token = localStorage.getItem('h5-token')
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth === true)
 
   // 已登录用户访问登录/注册页，重定向到首页
   if (token && (to.path === '/login' || to.path === '/register')) {
-    return next('/')
+    return { path: '/' }
   }
 
   // 需要认证但未登录，跳转登录页并携带原目标路径
   if (requiresAuth && !token) {
-    return next({ path: '/login', query: { redirect: to.fullPath } })
+    return ({ path: '/login', query: { redirect: to.fullPath } })
   }
 
-  next()
+  return true
 })
 
 export default router

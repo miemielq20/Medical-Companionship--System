@@ -4,6 +4,7 @@ import com.example.mc_server.interceptor.TokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -14,6 +15,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private TokenInterceptor tokenInterceptor;
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Bean
     public CorsFilter corsFilter() {
@@ -38,6 +44,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "/user/authentication",
                         "/login",
                         "/Index/index",
-                        "/h5/companion");
+                        "/h5/companion",
+                        "/gaode/**");
     }
 }

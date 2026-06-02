@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class Hospital {
     private Long id;
     private String name;
+    private String province;
     private String rank;
     private String label;
     private String intro;
