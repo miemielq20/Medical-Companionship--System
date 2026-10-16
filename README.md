@@ -21,8 +21,7 @@ MedicalCompanionSystem/
 ├── docker-compose.yml             # Docker 一键部署编排
 ├── Dockerfile.nginx               # 前端 Nginx 镜像
 ├── nginx.conf                     # Nginx 反向代理配置
-├── 宝塔部署指南.md                # 宝塔部署说明
-└── Docker部署指南.md              # Docker 部署说明
+
 ```
 
 ## 功能概览
@@ -118,12 +117,5 @@ npm run build
 
 构建产物分别位于 `mc_ui/dist/` 和 `mc_h5/dist/`。生产环境可使用 Nginx 托管静态文件，并将 `/api` 反向代理到后端服务。
 
-## 部署文档
 
-- [宝塔部署指南](./宝塔部署指南.md)
-- [Docker 部署指南](./Docker部署指南.md)
-
-## 安全提示
-
-部署到公开服务器前，请替换数据库密码、短信服务密钥、地图 API Key 和 JWT 相关配置，并优先通过环境变量或服务器侧配置注入敏感信息。线上服务建议使用 HTTPS、限制数据库和 Redis 的公网访问，并在防火墙中只开放必要端口。
 
